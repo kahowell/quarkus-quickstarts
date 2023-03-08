@@ -20,10 +20,10 @@ public class QuoteProcessor {
     private Random random = new Random();
 
     @Incoming("requests")       // <1>
-    @Outgoing("quotes")         // <2>
     @Blocking                   // <3>
     public Quote process(String quoteRequest) throws InterruptedException {
         // simulate some hard working task
+        System.out.println(quoteRequest);
         Thread.sleep(200);
         return new Quote(quoteRequest, random.nextInt(100));
     }
